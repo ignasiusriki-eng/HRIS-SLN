@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payroll HRIS Enterprise - Talenta Style</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class'
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-white min-h-screen overflow-x-hidden">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar -->
+    <aside class="w-72 bg-slate-900 border-r border-slate-800 p-6 hidden lg:block">
+
+      <div class="mb-10">
+        <h1 class="text-3xl font-extrabold text-emerald-400">
+          PayrollHRIS
+        </h1>
+        <p class="text-slate-400 mt-2 text-sm">
+          Enterprise Payroll System
+        </p>
+      </div>
+
+      <nav class="space-y-3">
+
+        <div class="mb-5 text-xs uppercase tracking-widest text-slate-500 font-bold">
+          Main Menu
+        </div>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-emerald-500 text-white font-semibold">
+          Dashboard
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Karyawan
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Absensi
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Payroll
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Divisi
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Laporan
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Pengaturan
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Tunjangan
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Slip Gaji
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 transition">
+          Audit Log
+        </a>
+
+      </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-10">
+
+      <!-- Navbar -->
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5 mb-10">
+
+        <div>
+          <h2 class="text-4xl font-bold">
+            Dashboard Payroll
+          </h2>
+          <p class="text-slate-400 mt-2">
+            Monitoring payroll dan data karyawan perusahaan
+          </p>
+        </div>
+
+        <div class="flex items-center gap-4">
+
+          <button class="bg-slate-800 px-5 py-3 rounded-xl hover:bg-slate-700 transition">
+            Dark Mode
+          </button>
+
+          <div class="flex items-center gap-3 bg-slate-900 px-4 py-3 rounded-2xl border border-slate-800">
+            <div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center font-bold">
+              A
+            </div>
+
+            <div>
+              <p class="font-semibold">
+                Admin HRD
+              </p>
+              <p class="text-sm text-slate-400">
+                Super Admin
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Top Summary -->
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
+
+        <div class="bg-gradient-to-r from-emerald-500 to-emerald-700 rounded-3xl p-8 shadow-2xl">
+          <p class="text-white/80 text-sm uppercase tracking-widest">
+            Total Payroll Bulan Ini
+          </p>
+          <h2 class="text-5xl font-extrabold mt-4">
+            Rp 125.000.000
+          </h2>
+          <div class="mt-5 flex items-center gap-3">
+            <span class="bg-white/20 px-4 py-2 rounded-full text-sm">
+              +12% dari bulan lalu
+            </span>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <p class="text-slate-400">Karyawan Hadir Hari Ini</p>
+              <h3 class="text-4xl font-bold mt-2">109</h3>
+            </div>
+
+            <div class="w-20 h-20 rounded-full border-8 border-emerald-500 flex items-center justify-center text-xl font-bold">
+              92%
+            </div>
+          </div>
+
+          <div class="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
+            <div class="bg-emerald-500 h-3 rounded-full w-[92%]"></div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8">
+          <p class="text-slate-400 mb-5">
+            Reminder Kontrak Habis
+          </p>
+
+          <div class="space-y-4">
+
+            <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+              <div>
+                <p class="font-semibold">Budi Hartono</p>
+                <p class="text-sm text-slate-400">Kasir</p>
+              </div>
+
+              <span class="text-red-400 font-bold">
+                3 Hari Lagi
+              </span>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+              <div>
+                <p class="font-semibold">Rina Maharani</p>
+                <p class="text-sm text-slate-400">Waiter</p>
+              </div>
+
+              <span class="text-yellow-400 font-bold">
+                7 Hari Lagi
+              </span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Dashboard Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-10">
+
+        <div class="glass border border-slate-800 rounded-3xl p-6 hover:scale-105 transition duration-300">
+          <p class="text-slate-400 mb-3">
+            Total Karyawan
+          </p>
+          <h3 class="text-4xl font-bold text-emerald-400">
+            125
+          </h3>
+        </div>
+
+        <div class="glass border border-slate-800 rounded-3xl p-6 hover:scale-105 transition duration-300">
+          <p class="text-slate-400 mb-3">
+            Payroll Bulan Ini
+          </p>
+          <h3 class="text-4xl font-bold text-blue-400">
+            Rp 125JT
+          </h3>
+        </div>
+
+        <div class="glass border border-slate-800 rounded-3xl p-6 hover:scale-105 transition duration-300">
+          <p class="text-slate-400 mb-3">
+            Karyawan Aktif
+          </p>
+          <h3 class="text-4xl font-bold text-yellow-400">
+            118
+          </h3>
+        </div>
+
+        <div class="glass border border-slate-800 rounded-3xl p-6 hover:scale-105 transition duration-300">
+          <p class="text-slate-400 mb-3">
+            Kontrak Habis
+          </p>
+          <h3 class="text-4xl font-bold text-red-400">
+            7
+          </h3>
+        </div>
+
+      </div>
+
+
+      <!-- Analytics -->
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-10">
+
+        <div class="xl:col-span-2 bg-slate-900 border border-slate-800 rounded-3xl p-6">
+          <div class="flex justify-between items-center mb-8">
+            <div>
+              <h3 class="text-2xl font-bold">Grafik Payroll</h3>
+              <p class="text-slate-400 mt-2">Pengeluaran payroll perusahaan</p>
+            </div>
+
+            <select class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none">
+              <option>2026</option>
+            </select>
+          </div>
+
+          <div class="h-72 flex items-end gap-4">
+            <div class="flex-1 bg-emerald-500 rounded-t-3xl h-[70%]"></div>
+            <div class="flex-1 bg-blue-500 rounded-t-3xl h-[85%]"></div>
+            <div class="flex-1 bg-yellow-500 rounded-t-3xl h-[55%]"></div>
+            <div class="flex-1 bg-red-500 rounded-t-3xl h-[90%]"></div>
+            <div class="flex-1 bg-purple-500 rounded-t-3xl h-[65%]"></div>
+            <div class="flex-1 bg-cyan-500 rounded-t-3xl h-[95%]"></div>
+          </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+
+          <h3 class="text-2xl font-bold mb-6">
+            Statistik Divisi
+          </h3>
+
+          <div class="space-y-5">
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span>Waiter</span>
+                <span>35%</span>
+              </div>
+              <div class="bg-slate-800 h-3 rounded-full overflow-hidden">
+                <div class="bg-emerald-500 h-3 w-[35%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span>Kasir</span>
+                <span>20%</span>
+              </div>
+              <div class="bg-slate-800 h-3 rounded-full overflow-hidden">
+                <div class="bg-blue-500 h-3 w-[20%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span>Seafood</span>
+                <span>30%</span>
+              </div>
+              <div class="bg-slate-800 h-3 rounded-full overflow-hidden">
+                <div class="bg-yellow-500 h-3 w-[30%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-2">
+                <span>Minuman</span>
+                <span>15%</span>
+              </div>
+              <div class="bg-slate-800 h-3 rounded-full overflow-hidden">
+                <div class="bg-red-500 h-3 w-[15%]"></div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Payroll Table -->
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl overflow-hidden mb-10">
+
+        <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center p-6 border-b border-slate-800 gap-5">
+
+          <div>
+            <h3 class="text-2xl font-bold">
+              Data Payroll Karyawan
+            </h3>
+            <p class="text-slate-400 mt-1">
+              Rekap gaji seluruh karyawan bulan ini
+            </p>
+          </div>
+
+          <div class="flex gap-4 w-full lg:w-auto">
+
+            <input
+              type="text"
+              placeholder="Cari karyawan..."
+              class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 w-full lg:w-80 outline-none focus:border-emerald-500"
+            />
+
+            <button class="bg-emerald-500 hover:bg-emerald-600 transition px-6 py-3 rounded-xl font-semibold whitespace-nowrap">
+              + Tambah
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="overflow-x-auto">
+
+          <table class="w-full">
+
+            <thead class="bg-slate-800 text-slate-300">
+              <tr>
+                <th class="text-left px-6 py-4">Nama</th>
+                <th class="text-left px-6 py-4">Divisi</th>
+                <th class="text-left px-6 py-4">Jabatan</th>
+                <th class="text-left px-6 py-4">Status</th>
+                <th class="text-left px-6 py-4">Gaji Pokok</th>
+                <th class="text-left px-6 py-4">Tunjangan</th>
+                <th class="text-left px-6 py-4">Potongan</th>
+                <th class="text-left px-6 py-4">Total Gaji</th>
+                <th class="text-left px-6 py-4">Aksi</th>
+              </tr>
+            </thead>
+
+            <tbody>
+
+              <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                <td class="px-6 py-5 font-semibold">Andi Saputra</td>
+                <td class="px-6 py-5">Waiter</td>
+                <td class="px-6 py-5">Supervisor</td>
+                <td class="px-6 py-5">
+                  <span class="bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full text-sm">
+                    Aktif
+                  </span>
+                </td>
+                <td class="px-6 py-5">Rp 5.000.000</td>
+                <td class="px-6 py-5">Rp 1.200.000</td>
+                <td class="px-6 py-5">Rp 350.000</td>
+                <td class="px-6 py-5 font-bold text-emerald-400">Rp 5.850.000</td>
+                <td class="px-6 py-5 flex gap-3">
+                  <button class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Edit
+                  </button>
+                  <button class="bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                    Hapus
+                  </button>
+                </td>
+              </tr>
+
+
+              <tr class="border-b border-slate-800 hover:bg-slate-800/50 transition">
+                <td class="px-6 py-5 font-semibold">Budi Hartono</td>
+                <td class="px-6 py-5">Kasir</td>
+                <td class="px-6 py-5">Kasir Senior</td>
+                <td class="px-6 py-5">
+                  <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm">
+                    Kontrak
+                  </span>
+                </td>
+                <td class="px-6 py-5">Rp 4.500.000</td>
+                <td class="px-6 py-5">Rp 800.000</td>
+                <td class="px-6 py-5">Rp 250.000</td>
+                <td class="px-6 py-5 font-bold text-emerald-400">Rp 5.050.000</td>
+                <td class="px-6 py-5 flex gap-3">
+                  <button class="bg-blue-500 px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+                    Edit
+                  </button>
+                  <button class="bg-red-500 px-4 py-2 rounded-lg hover:bg-red-600 transition">
+                    Hapus
+                  </button>
+                </td>
+              </tr>
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+      </div>
+
+
+      <!-- Attendance & Activity -->
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+        <!-- Attendance -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+
+          <div class="flex justify-between items-center mb-6">
+            <h3 class="text-2xl font-bold">
+              Absensi Hari Ini
+            </h3>
+
+            <button class="bg-emerald-500 px-4 py-2 rounded-xl hover:bg-emerald-600 transition">
+              Check In
+            </button>
+          </div>
+
+          <div class="space-y-4">
+
+            <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+              <div>
+                <p class="font-semibold">Andi Saputra</p>
+                <p class="text-sm text-slate-400">Waiter</p>
+              </div>
+
+              <div class="text-right">
+                <p class="text-emerald-400 font-bold">09:05</p>
+                <p class="text-sm text-slate-400">Tepat Waktu</p>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+              <div>
+                <p class="font-semibold">Budi Hartono</p>
+                <p class="text-sm text-slate-400">Kasir</p>
+              </div>
+
+              <div class="text-right">
+                <p class="text-red-400 font-bold">09:45</p>
+                <p class="text-sm text-slate-400">Terlambat</p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Activity -->
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+
+          <h3 class="text-2xl font-bold mb-6">
+            Aktivitas Payroll
+          </h3>
+
+          <div class="space-y-5">
+
+            <div class="border-l-4 border-emerald-500 pl-4">
+              <p class="font-semibold">
+                Payroll bulan Mei berhasil dibuat
+              </p>
+              <p class="text-sm text-slate-400 mt-1">
+                2 menit lalu
+              </p>
+            </div>
+
+            <div class="border-l-4 border-blue-500 pl-4">
+              <p class="font-semibold">
+                Data karyawan baru ditambahkan
+              </p>
+              <p class="text-sm text-slate-400 mt-1">
+                10 menit lalu
+              </p>
+            </div>
+
+            <div class="border-l-4 border-yellow-500 pl-4">
+              <p class="font-semibold">
+                Reminder kontrak karyawan muncul
+              </p>
+              <p class="text-sm text-slate-400 mt-1">
+                30 menit lalu
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+
+
+  <!-- Employee Management -->
+  <section class="p-6 lg:p-10">
+
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 mb-10">
+
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h3 class="text-3xl font-bold">Manajemen Karyawan</h3>
+          <p class="text-slate-400 mt-2">Kelola data seluruh karyawan perusahaan</p>
+        </div>
+
+        <button class="bg-emerald-500 hover:bg-emerald-600 px-5 py-3 rounded-xl font-semibold transition">
+          + Tambah Karyawan
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-6">
+
+        <input type="text" placeholder="Nama Karyawan" class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500" />
+
+        <select class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500">
+          <option>Divisi</option>
+          <option>Waiter</option>
+          <option>Kasir</option>
+          <option>Seafood</option>
+          <option>Minuman</option>
+        </select>
+
+        <select class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500">
+          <option>Status</option>
+          <option>Tetap</option>
+          <option>Kontrak</option>
+          <option>Magang</option>
+        </select>
+
+        <button class="bg-blue-500 hover:bg-blue-600 px-5 py-3 rounded-xl font-semibold transition">
+          Export Excel
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- Manual Attendance -->
+    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 mb-10">
+
+      <div class="flex justify-between items-center mb-6">
+        <div>
+          <h3 class="text-3xl font-bold">Input Absensi Manual</h3>
+          <p class="text-slate-400 mt-2">Jam masuk default pukul 09:30</p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+
+        <input type="text" placeholder="Nama Karyawan" class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500" />
+
+        <input type="time" value="09:30" class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500" />
+
+        <select class="bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500">
+          <option>Hadir</option>
+          <option>Izin</option>
+          <option>Sakit</option>
+          <option>Alpha</option>
+        </select>
+
+        <button class="bg-emerald-500 hover:bg-emerald-600 px-5 py-3 rounded-xl font-semibold transition">
+          Simpan Absensi
+        </button>
+
+      </div>
+
+      <div class="mt-6 bg-slate-800 rounded-2xl p-5 border border-slate-700">
+        <p class="text-lg font-semibold text-red-400">
+          Karyawan terlambat jika check in lebih dari 09:30
+        </p>
+      </div>
+
+    </div>
+
+
+    <!-- Payroll & Allowance -->
+    <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+
+        <h3 class="text-3xl font-bold mb-6">Payroll</h3>
+
+        <div class="space-y-5">
+
+          <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+            <span>Gaji Pokok</span>
+            <span class="font-bold text-emerald-400">Rp 5.000.000</span>
+          </div>
+
+          <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+            <span>Tunjangan</span>
+            <span class="font-bold text-blue-400">Rp 1.500.000</span>
+          </div>
+
+          <div class="flex justify-between items-center bg-slate-800 p-4 rounded-2xl">
+            <span>Potongan</span>
+            <span class="font-bold text-red-400">Rp 350.000</span>
+          </div>
+
+          <div class="flex justify-between items-center bg-emerald-500/20 p-5 rounded-2xl border border-emerald-500">
+            <span class="text-xl font-bold">Total Payroll</span>
+            <span class="text-2xl font-extrabold text-emerald-400">Rp 6.150.000</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6">
+
+        <h3 class="text-3xl font-bold mb-6">Tunjangan Karyawan</h3>
+
+        <div class="space-y-4">
+
+          <div class="bg-slate-800 p-4 rounded-2xl flex justify-between items-center">
+            <span>Tunjangan Jabatan</span>
+            <span class="text-blue-400 font-bold">Rp 500.000</span>
+          </div>
+
+          <div class="bg-slate-800 p-4 rounded-2xl flex justify-between items-center">
+            <span>Tunjangan Transport</span>
+            <span class="text-blue-400 font-bold">Rp 400.000</span>
+          </div>
+
+          <div class="bg-slate-800 p-4 rounded-2xl flex justify-between items-center">
+            <span>Tunjangan Makan</span>
+            <span class="text-blue-400 font-bold">Rp 600.000</span>
+          </div>
+
+          <button class="w-full bg-emerald-500 hover:bg-emerald-600 transition px-5 py-4 rounded-2xl font-bold mt-4">
+            + Tambah Tunjangan
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
